@@ -68,3 +68,7 @@ dl > div.appear dd {
     transform: none;
   }
 }
+
+body img {
+  padding: 300px;
+}
