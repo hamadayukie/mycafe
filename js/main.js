@@ -1,17 +1,17 @@
 'use strict';
 
 {
-  const dts = document.querySelectorAll('dt');
+ const open = document.getElementById('open');
+ const overlay = document.querySelector('.overlay');
+ const close =document.getElementById('close');
 
-  ps.forEach(p => {
-    p.addEventListener('click',() => {
-      p.parentNode.classList.toggle('appear');
+ open.addEventListener('click', () => {
+  overlay.classList.add('show');
+  open.classList.add('hide');
+ });
 
-      h4s.forEach(el => {
-        if (p !== el) {
-          el.parentNode.classList.remove('appear');
-        }
-      });
-    });
-  });
+ close.addEventListener('click', () => {
+  overlay.classList.remove('show');
+  open.classList.remove('hide');
+ });
 }
