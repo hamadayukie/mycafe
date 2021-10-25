@@ -3,12 +3,12 @@
 {
   const dts = document.querySelectorAll('dt');
 
-  dts.forEach(dt => {
+  ps.forEach(p => {
     p.addEventListener('click',() => {
       p.parentNode.classList.toggle('appear');
 
-      dts.forEach(el => {
-        if (dt !== el) {
+      h4s.forEach(el => {
+        if (p !== el) {
           el.parentNode.classList.remove('appear');
         }
       });
