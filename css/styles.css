@@ -1,115 +1,71 @@
 body {
+  background-color: aquamarine;
+}
+
+h1 {
+  font-size: 18pt;
+  color: rgb(209, 44, 44);
+  border-bottom: 1px solid black;
+  padding: 8px 16px;
+  margin-bottom: 16pt;
+  
+}
+
+dl {
   margin: 0;
-  font-family: Verdana, sans-serif;
 }
 
-header {
-  display: flex;
-  padding: 0 16px;
+dl > div {
+  margin-bottom: 8px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 22px;
-  line-height: 64px;
-}
-
-.sp-menu {
-  margin-left: auto;
-}
-
-.sp-menu #open {
-  font-size: 32px;
-  line-height: 64px;
+dt {
+  margin: 8px;
+  margin-left: 750px;
   cursor: pointer;
+  user-select: none;
+  position: relative;
 }
 
-.sp-menu #open.hide {
+dt::before {
+  content: '';
+}
+
+dt::after {
+  content:'+';
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  transition: transform .3s ;
+}
+
+dl > div.appear dt::after {
+  transform: rotate(45deg);
+}
+
+dd {
+  padding: 8px;
+  margin: 0;
+  margin-left: 625px;
   display: none;
 }
 
-main {
-  padding: 0 16px;
+dd::before {
+  content: '';
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.95);
-  text-align: center;
-  padding: 64px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .6s;
+dl > div.appear dd {
+  display: block;
+  animation: .3s fadeIn;
 }
 
-.overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlay #close {
- position: absolute;
- top: 16px;
- right: 16px;
- font-size: 32px;
- cursor: pointer; 
-}
-
-.overlay ul {
- list-style-type: none;
- margin: 0;
- padding: 0;
-}
-
-.overlay li {
- margin-top: 24px;
- opacity: 0;
- transform: translateY(16px); 
- transition: opacity .3s, transform .3s;
-}
-
-.overlay.show li {
-  opacity: 1;
-  transform: none;
-}
-
-.overlay.show li:nth-last-child(3) {
-  transition-delay: .3s;
-}
-
-.pc-menu {
-  display: none;
-}
-
-@media (min-width: 600px) {
-  .pc-menu {
-    display: block;
-    margin-left: auto;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-
-  .pc-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  100% {
+    opacity: 1;
+    transform: none;
   }
-
-  .pc-menu a {
-    display: block;
-    width: 80px;
-    line-height: 64px;
-    text-align: center;
-  }
-
-  .pc-menu a:hover {
-   background: #f2f2f2; 
-  }
-
-  .sp-menu {
-    display: none;
-    }
 }
