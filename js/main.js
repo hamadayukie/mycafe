@@ -1,17 +1,80 @@
 'use strict';
 
 {
-  const dts = document.querySelectorAll('dt');
+  const next = document.getElementById('next');
+  const prev = document.getElementById('prev');
+  const ul = document.querySelector('ul');
+  const slides = ul.children;
+  const dots = [];
+  let currentIndex = 0;
 
-  dts.forEach(dt => {
-    dt.addEventListener('click',() => {
-      dt.parentNode.classList.toggle('appear');
+  function updateButtons() {
+    prev.classList.remove('hidden');
+    next.classList.remove('hidden');
 
-      dts.forEach(el => {
-        if (dt !== el) {
-          el.parentNode.classList.remove('appear');
-        }
+    if (currentIndex === 0) {
+      prev.classList.add('hidden');
+    }
+    if (currentIndex === slides.length - 1) {
+      next.classList.add('hidden');
+    }
+  }
+
+  function moveSlides() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    ul.style.transform = `translateX(${-1 * slideWidth * currentIndex}px)`;
+
+  }
+
+  function setupDots() {
+    for (let i = 0; i < slides.length; i++) {
+      const button = document.createElement('button');
+      button.addEventListener('click', () => {
+        currentIndex = i;
+        updateDots();
+        updateButtons();
+        moveSlides();
       });
+      dots.push(button);
+      button.addEventListener('click', () => {
+        currentIndex = i;
+        dots.forEach(dot => {
+          dot.classList.remove('current');
+        });
+        dots[currentIndex].classList.add('current');
+        updateButtons();
+        moveSlides();
+      });
+      document.querySelector('nav').appendChild(button);
+    }
+
+    dots[0].classList.add('current');
+  }
+
+  function updateDots() {
+    dots.forEach(dot => {
+      dot.classList.remove('current');
     });
+    dots[currentIndex].classList.add('current');
+  }
+  updateButtons();
+  setupDots();
+
+  next.addEventListener('click', () => {
+    currentIndex++;
+    updateButtons();
+    updateDots();
+    moveSlides();
   });
+
+  prev.addEventListener('click', () => {
+    currentIndex--;
+    updateButtons();
+    updateDots();
+    moveSlides();
+  });
+
+   window.addEventListener('resize', () => {
+   moveSlides();
+   });
 }
