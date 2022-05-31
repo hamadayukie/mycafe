@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <title>佐伯事務所</title>
+</head>
+<body>
+  <h1>佐伯事務所</h1>
+  <h2>ビジネスパートナー</h2>
+  <p>貴方の会社の人事や労務のお仕事お任せください。</p>
+  <p>給与計算、就業規則、助成金、社会保険、労働保険、会社の顧問等、どんな相談にも乗ります。</p>
+  <p>今の社労士事務所に満足していない方々。</p>
+  <section>
+    <section id="inquiry">
+<div class="sec_inner container">
+<h3 class="common_h">Contact</h3>
+<div class="row">
+  <p class="alert alert-info">
+    下記フォームにご入力いただいた後、「内容を確認」ボタンをクリックしてお進み下さい。
+  </p>
+</div>
+<div class="row">
+  <form name="F0" id="F0" action="https://paris-hana.com/?m=inquiry/result" class="form-horizontal" method="POST">
+    <div class="form-group <!--%name_class_lbl%-->">
+      <label class="col-xs-3 control-label"><span class="text-danger">※</span>お名前</label>
+      <div class="col-xs-9">
+        <input type="text" name="name" value="" class="form-control" />
+        <span class="help-block"><!--%error_name%--></span>
+      </div>
+    </div>
+    <div class="form-group <!--%mail_adr_class_lbl%-->">
+      <label class="col-xs-3 control-label"><span class="text-danger">※</span>メールアドレス</label>
+      <div class="col-xs-9">
+        <input type="text" name="mail_adr" value="" class="form-control" />
+        <span class="help-block"><!--%error_mail_adr%--></span>
+      </div>
+    </div>
+    <div class="form-group <!--%tel_class_lbl%-->">
+      <label class="col-xs-3 control-label">お電話番号</label>
+      <div class="col-xs-9">
+        <input type="text" name="tel" value="" class="form-control" />
+        <span class="help-block"><!--%error_tel%--></span>
+      </div>
+    </div>
+    <div class="form-group <!--%tel_class_lbl%-->">
+      <label class="col-xs-3 control-label">ご住所</label>
+      <div class="col-xs-9">
+        <input type="text" name="addres" value="" class="form-control" />
+        <span class="help-block"><!--%error_address%--></span>
+      </div>
+    </div>
+    <div class="form-group <!--%text_class_lbl%-->">
+      <label class="col-xs-12 col-sm-3 control-label"><span class="text-danger">※</span>お問い合せ内容</label>
+      <div class="col-xs-12 col-sm-9">
+        <textarea name="text" class="form-control"></textarea>
+        <span class="help-block"><!--%error_text%--></span>
+      </div>
+    </div>
+    <input type="hidden" name="mode" value="chk" />
+  </form>
+    <div class="text-center">
+      <a href="javascript:void(0);" onclick="send_post()" class="btn btn-primary" style="color: #FFF;">内容を確認</a>
+    </div>
+</div>
+</div>
+
+</section>
+</body>
+</html>
+h1 {
+  text-align: center;
+ 
+}
+
+h2 {
+  color: blue;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+section {
+  text-align: center;
+}
